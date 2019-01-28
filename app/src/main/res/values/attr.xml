@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SimpleGridView">
+        <attr name="boundSpace" format="dimension|reference"/>
+        <attr name="middleSpace" format="dimension|reference"/>
+        <attr name="column" format="integer"/>
+    </declare-styleable>
+</resources>
