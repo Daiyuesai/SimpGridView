@@ -14,7 +14,7 @@ import java.util.List;
  */
 public abstract class InAdapter<T>  {
 
-    private int layoutId;
+    private int layoutId = -1;
     protected Context mContext;
     private List<T> mDatas;
 
@@ -28,7 +28,10 @@ public abstract class InAdapter<T>  {
     public InViewHodler onCreateViewHolder(ViewGroup viewGroup, int position) {
         //这种inflate的方式会导致 布局文件的跟布局参数失效
        // View contentView = LayoutInflater.from(mContext).inflate(layoutId,null);
-        View contentView = LayoutInflater.from(mContext).inflate(layoutId,viewGroup,false);
+        View contentView = getView(viewGroup,position);
+        if (contentView == null) {
+            contentView = LayoutInflater.from(mContext).inflate(layoutId,viewGroup,false);
+        }
         InViewHodler viewHodler = new InViewHodler(mContext,contentView,position);
         return viewHodler;
     }
@@ -41,6 +44,10 @@ public abstract class InAdapter<T>  {
 
 
     protected abstract void convert(InViewHodler hodler,T bean);
+
+    protected View getView(ViewGroup viewGroup,int position){
+        return null;
+    }
 
     public int getItemCount() {
         return mDatas.size();

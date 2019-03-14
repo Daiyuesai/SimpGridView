@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleGridView</string>
+    <string name="title_activity_flow_layout_view">FlowLayoutViewActivity</string>
 </resources>

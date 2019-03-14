@@ -5,4 +5,40 @@
         <attr name="middleSpace" format="dimension|reference"/>
         <attr name="column" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="FlowLayoutView_Layout">
+        <attr name="flow_gravity" >
+            <enum name="top" value="48"/>
+            <enum name="center" value="17"/>
+            <enum name="bottom" value="80"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayoutView">
+        <attr name="childDefultGravity" >
+            <enum name="top" value="48"/>
+            <enum name="center" value="17"/>
+            <enum name="bottom" value="80"/>
+        </attr>
+        <attr name="layoutGravity">
+            <enum name="left" value="3"/>
+            <enum name="center" value="17"/>
+            <enum name="right" value="5"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="NineLayoutView">
+
+        <attr name="singleMaxSize" format="dimension|reference"/>
+        <attr name="nine_middleSpace" format="dimension|reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="InvariantImageView">
+        <attr name="limitMode" >
+            <enum value="1" name="limitModeWidth"/>
+            <enum value="2" name="limitModeHeight"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

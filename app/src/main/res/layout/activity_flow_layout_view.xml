@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.FlowLayoutViewActivity">
+    <com.xiaozhanxiang.simplegridview.view.FlowLayoutView
+        android:layout_width="wrap_content"
+        app:layoutGravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:enabled="false"
+            android:background="@drawable/selector_tag"
+            android:padding="30dp"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            app:flow_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:text="我我的啊我我的啊我我的啊我我2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            app:flow_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:text="我的是我我3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊我的啊是我的啊8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="@dimen/dp_4"
+            android:background="@drawable/selector_tag"
+            android:textColor="@color/colorPrimary"
+            android:text="我的啊是我的啊9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.xiaozhanxiang.simplegridview.view.FlowLayoutView>
+
+</LinearLayout>

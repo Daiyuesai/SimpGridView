@@ -2,7 +2,9 @@ package com.xiaozhanxiang.simplegridview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.design.internal.BaselineLayout;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,17 +17,11 @@ import java.util.List;
 /**
  * author: dai
  * date:2019/1/25
+ * 简单的网格布局，不可以滑动，主要是针对嵌套的情况
  */
-public class SimpleGridView extends ViewGroup implements InAdapter.OnDataChangeListener {
+public class SimpleGridView extends BaseListViewLayout {
 
     private static final String TAG = "InvestigationView";
-    private int mOrientation;
-    public static final int HORIZONTAL = 0;
-    public static final int VERTICAL = 1;
-    private InAdapter mAdapter;
-
-    public List<InViewHodler> mViewHodlers = new ArrayList<>();
-    public List<InViewHodler> recyleViewHodlers = new ArrayList<>();
 
 
     private int mBoundSpace;//边距
@@ -117,7 +113,6 @@ public class SimpleGridView extends ViewGroup implements InAdapter.OnDataChangeL
                         }
                     }
                 }
-
             }
             setMeasuredDimension(widthSize,
                     resolveSizeAndState(resultHeight,heightMeasureSpec,0));
@@ -180,6 +175,12 @@ public class SimpleGridView extends ViewGroup implements InAdapter.OnDataChangeL
     }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //todo 处理滑动事件
+
+        return super.onTouchEvent(event);
+    }
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) { //支持marginlayoutParams
@@ -198,84 +199,84 @@ public class SimpleGridView extends ViewGroup implements InAdapter.OnDataChangeL
 
 
 
-    /**
-     * 重新设置adapter
-     * @param adapter
-     */
-    public void setAdapter(InAdapter adapter){
-        if (mAdapter != null) {
-            mAdapter.removeOnDataChangeListener(this);
-        }
-        mAdapter = adapter;
-        if (mAdapter != null) {
-            mAdapter.addOnDataChangeListener(this);
-        }
-
-        //removeAllViews();
-//        mViewHodlers.clear();
-//        recyleViewHodlers.clear();
-        updateUi();
-
-
-    }
-
-    private void updateUi() {
-        if (mAdapter != null) {
-            int itemCount = mAdapter.getItemCount();
-            if (mViewHodlers.size() > itemCount) {
-                for (int i = mViewHodlers.size() -1 ; i >= itemCount; i--) {//把多余得view 放入待回收集合中
-                    recyleViewHodlers.add(mViewHodlers.remove(i));
-                }
-            }else {
-                for (int i = mViewHodlers.size(); i < itemCount; i++) {
-                    InViewHodler viewHolder = getRecyleViewHolder();
-                    if (viewHolder == null) {
-                        viewHolder = mAdapter.onCreateViewHolder(this,i);
-                    }
-                    mViewHodlers.add(viewHolder);
-                }
-            }
-
-            for (int i = 0; i < mViewHodlers.size(); i++) {
-                mAdapter.onBindViewHolder(mViewHodlers.get(i),i);
-            }
-            checkView();
-        }
-    }
-
-    private void checkView() {
-        int childCount = getChildCount();
-        int minCount = Math.min(mViewHodlers.size(),childCount);
-        for (int i = 0; i < minCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt != mViewHodlers.get(i).getContentView()) {
-                removeViewAt(i);
-                addView(mViewHodlers.get(i).getContentView(),i);
-            }
-        }
-        if (childCount < mViewHodlers.size()) {
-            for (int i = childCount; i < mViewHodlers.size(); i++) {
-                addView(mViewHodlers.get(i).getContentView());
-            }
-        }else {
-            for (int i = childCount-1; i >= mViewHodlers.size(); i--) {
-                removeViewAt(i);
-            }
-        }
-    }
-
-    public InAdapter getAdapter() {
-        return mAdapter;
-    }
-
-
-    public InViewHodler getRecyleViewHolder(){
-        if (recyleViewHodlers.size() == 0)return null;
-        return recyleViewHodlers.remove(0);
-    }
-
-    @Override
-    public void onDataChange() {
-        updateUi();
-    }
+//    /**
+//     * 重新设置adapter
+//     * @param adapter
+//     */
+//    public void setAdapter(InAdapter adapter){
+//        if (mAdapter != null) {
+//            mAdapter.removeOnDataChangeListener(this);
+//        }
+//        mAdapter = adapter;
+//        if (mAdapter != null) {
+//            mAdapter.addOnDataChangeListener(this);
+//        }
+//
+//        //removeAllViews();
+////        mViewHodlers.clear();
+////        recyleViewHodlers.clear();
+//        updateUi();
+//
+//
+//    }
+//
+//    private void updateUi() {
+//        if (mAdapter != null) {
+//            int itemCount = mAdapter.getItemCount();
+//            if (mViewHodlers.size() > itemCount) {
+//                for (int i = mViewHodlers.size() -1 ; i >= itemCount; i--) {//把多余得view 放入待回收集合中
+//                    recyleViewHodlers.add(mViewHodlers.remove(i));
+//                }
+//            }else {
+//                for (int i = mViewHodlers.size(); i < itemCount; i++) {
+//                    InViewHodler viewHolder = getRecyleViewHolder();
+//                    if (viewHolder == null) {
+//                        viewHolder = mAdapter.onCreateViewHolder(this,i);
+//                    }
+//                    mViewHodlers.add(viewHolder);
+//                }
+//            }
+//
+//            for (int i = 0; i < mViewHodlers.size(); i++) {
+//                mAdapter.onBindViewHolder(mViewHodlers.get(i),i);
+//            }
+//            checkView();
+//        }
+//    }
+//
+//    private void checkView() {
+//        int childCount = getChildCount();
+//        int minCount = Math.min(mViewHodlers.size(),childCount);
+//        for (int i = 0; i < minCount; i++) {
+//            View childAt = getChildAt(i);
+//            if (childAt != mViewHodlers.get(i).getContentView()) {
+//                removeViewAt(i);
+//                addView(mViewHodlers.get(i).getContentView(),i);
+//            }
+//        }
+//        if (childCount < mViewHodlers.size()) {
+//            for (int i = childCount; i < mViewHodlers.size(); i++) {
+//                addView(mViewHodlers.get(i).getContentView());
+//            }
+//        }else {
+//            for (int i = childCount-1; i >= mViewHodlers.size(); i--) {
+//                removeViewAt(i);
+//            }
+//        }
+//    }
+//
+//    public InAdapter getAdapter() {
+//        return mAdapter;
+//    }
+//
+//
+//    private InViewHodler getRecyleViewHolder(){
+//        if (recyleViewHodlers.size() == 0)return null;
+//        return recyleViewHodlers.remove(0);
+//    }
+//
+//    @Override
+//    public void onDataChange() {
+//        updateUi();
+//    }
 }

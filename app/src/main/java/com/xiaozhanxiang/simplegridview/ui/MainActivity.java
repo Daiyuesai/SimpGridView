@@ -2,6 +2,7 @@ package com.xiaozhanxiang.simplegridview.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.xiaozhanxiang.simplegridview.R;
 import com.xiaozhanxiang.simplegridview.adapter.MainAdapter;
@@ -23,9 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> data = new ArrayList<>();
         data.add("RecyclerVeiwActivtiy");
+        data.add("FlowLayoutActivity");
+        data.add("可拖拽recuclerView");
+        data.add("jinActivity");
         for (int i = 0; i < 20; i++) {
             data.add("这是测试测试啊");
         }
+
+
         adapter.addData(data);
     }
 }
