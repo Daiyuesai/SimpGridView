@@ -2,6 +2,7 @@ package com.xiaozhanxiang.simplegridview.adapter;
 
 import android.content.Context;
 import android.content.MutableContextWrapper;
+import android.preference.PreferenceActivity;
 import android.view.View;
 
 import com.xiaozhanxiang.simplegridview.R;
@@ -9,6 +10,7 @@ import com.xiaozhanxiang.simplegridview.ui.DragDropRecyclerViewActivity;
 import com.xiaozhanxiang.simplegridview.ui.FlowLayoutViewActivity;
 import com.xiaozhanxiang.simplegridview.ui.JINActivity;
 import com.xiaozhanxiang.simplegridview.ui.RecyclerVeiwActivtiy;
+import com.xiaozhanxiang.simplegridview.ui.ViodeTestActivity;
 import com.xiaozhanxiang.simplegridview.view.InAdapter;
 import com.xiaozhanxiang.simplegridview.view.InViewHodler;
 
@@ -36,6 +38,8 @@ public class MainAdapter extends InAdapter<String> {
                     DragDropRecyclerViewActivity.getInstance(mContext);
                 }else if (hodler.getPosition() == 3){
                     JINActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 4){
+                    ViodeTestActivity.getInstance(mContext);
                 }
             }
         });

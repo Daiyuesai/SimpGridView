@@ -51,7 +51,13 @@ add_library( # Sets the name of the library. 设置库名字
         CallTest.cpp
         testnative.c
         externtest.c
+        test.cpp
         native.c)
+#
+#add_library(
+#        ffmpegtest
+#        SHARED
+#       )
 
 
 
@@ -67,6 +73,7 @@ find_library( # Sets the name of the path variable.
         # Specifies the name of the NDK library that
         # you want CMake to locate.
         log)
+
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
@@ -85,5 +92,23 @@ target_link_libraries( # Specifies the target library.
         # Links the target library to the log library
         # included in the NDK.
         # 依赖库，可以写多个
-        ${log-lib})
+        ${log-lib}
+        android)
+
+####给目标库添加依赖库
+#target_link_libraries( # Specifies the target library.
+#        ffmpegtest  #目标库
+#        avcodec
+#        avdevice
+#        avfilter
+#        avformat
+#        avutil
+#        postproc
+#        swresample
+#        swscale
+#        # Links the target library to the log library
+#        # included in the NDK.
+#        # 依赖库，可以写多个
+#        ${log-lib}
+#        android)
 

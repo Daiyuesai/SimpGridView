@@ -48,7 +48,7 @@ public class JINActivity extends AppCompatActivity {
             public void onClick(View v) {
                // mTvJin.setText(getStringForJin());
 
-                mTvJin.setText(mJniUtils.getNativeValue("hhhhh"));
+                mTvJin.setText(mJniUtils.getNativeFormCCC("hhhhh"));
             }
         });
 

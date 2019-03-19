@@ -20,6 +20,8 @@ public class JNIUtils {
 
     public native String getNativeValue(String key);
 
+    public native String getNativeFormCCC(String key);
+
     public native int nativeInt(int i,int j);
 
     public native boolean nativeArrayJava(int[] array);
@@ -27,6 +29,7 @@ public class JNIUtils {
     public native void callJavaVoid();
     public native void callJavaString(String key);
     public native void callJavaArray(int[] array);
+
 
     public void nativeCallJavaVoid(){
         ReflexBean bean = new ReflexBean();
