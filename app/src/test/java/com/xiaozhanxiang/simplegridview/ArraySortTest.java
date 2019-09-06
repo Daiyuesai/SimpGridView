@@ -30,14 +30,14 @@ public class ArraySortTest {
         }
         System.out.print("sort: " + buffer.toString());
 
-//
-//        byte h = (byte) 0xff;
-//        byte l = 33;
-//        int hi = h;
-//        int li = l & 0xff;
-//        int data = (hi << 8) | li;
-//
-//        System.out.print("sort: " + data);
+
+        byte h = (byte) 0xff;
+        byte l = 33;
+        int hi = h;
+        int li = l & 0xff;
+        int data = (hi << 8) | li;
+
+        System.out.print("sort: " + data);
     }
 
 
