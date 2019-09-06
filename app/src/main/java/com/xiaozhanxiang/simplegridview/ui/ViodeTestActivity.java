@@ -2,6 +2,7 @@ package com.xiaozhanxiang.simplegridview.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.arch.lifecycle.Observer;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -10,17 +11,22 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+
 import android.view.View;
 import android.widget.TextView;
 
 import com.xiaozhanxiang.simplegridview.R;
 import com.xiaozhanxiang.simplegridview.callback.PermissionResultListener;
+import com.xiaozhanxiang.simplegridview.utils.DateUtils;
 import com.xiaozhanxiang.simplegridview.view.MyVideoView;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 /**
  * author: dai
@@ -29,6 +35,7 @@ import java.util.HashMap;
 public class ViodeTestActivity extends BaseActivity {
     private static String[] permission = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE};
     private MyVideoView mVideoView;
+    private TextView mTvTest;
 
     public static void getInstance(Context context) {
         Intent intent = new Intent(context,ViodeTestActivity.class);
@@ -43,6 +50,8 @@ public class ViodeTestActivity extends BaseActivity {
         setContentView(R.layout.activity_viode_test);
         mVideoView = findViewById(R.id.videoview);
         TextView tvSelectFile = findViewById(R.id.tv_select_file);
+        mTvTest = findViewById(R.id.tv_test);
+
         tvSelectFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +66,14 @@ public class ViodeTestActivity extends BaseActivity {
                 });
             }
         });
+
+
+        mTvTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                play();
+            }
+        });
     }
 
 
@@ -65,6 +82,25 @@ public class ViodeTestActivity extends BaseActivity {
         intent.setType("*/*");//设置类型，我这里是任意类型，任意后缀的可以这样写。
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(intent,1);
+    }
+
+    private int time = 15*60;
+    private void play() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    time --;
+                    if (time <= 0) {
+                        break;
+                    }
+                    String s = DateUtils.timeStamp2Date(time * 1000, "mm:ss");
+                    mTvTest.setText(s);
+                    SystemClock.sleep(1000);
+                }
+            }
+        }).start();
     }
 
 

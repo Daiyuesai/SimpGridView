@@ -41,4 +41,57 @@
         </attr>
     </declare-styleable>
 
+
+    <declare-styleable name="MaxHeightFrameLayout">
+        <attr name="maxHeight" format="dimension|reference"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="MyProgressBar" >
+        <!-- 进度条默认的样式 -->
+        <attr name="back_line_color" format="color"/>
+        <attr name="back_line_height" format="dimension"/>
+
+        <attr name="progress_height" format="dimension|reference"/>
+        <attr name="progress_drawable" format="reference"/>
+        <!-- 展示进度的样式 -->
+        <attr name="fore_line_color" format="color"/>
+        <attr name="fore_line_height" format="dimension"/>
+        <!-- 三角形的颜色和高度 -->
+        <attr name="indicator_color" format="color"/>
+        <attr name="indicator_height" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="SlideBar">
+        <attr name="slTextSize" format="dimension|reference"/>
+        <attr name="slTextColor" format="color|reference"/>
+        <attr name="chooseTextColor" format="color|reference"/>
+        <attr name="slideBar_chooseBackgroundColor" format="color|reference"/>
+        <attr name="slideBar_style" format="enum">
+            <enum name="DEFAULT" value="0"/>
+            <enum name="NONE" value="1"/>
+            <enum name="CIRCLE" value="2"/>
+            <enum name="STRETCH" value="3"/>
+        </attr>
+        <!--是否显示提示语-->
+        <attr name="isShowTips" format="boolean"/>
+        <!--提示语的字体大小-->
+        <attr name="tipsTextSize" format="dimension|reference"/>
+        <!--提示语的字体颜色-->
+        <attr name="tipsTextColor" format="color|reference"/>
+        <!--提示语背景-->
+        <attr name="tipsBg" format="color|reference"/>
+        <!--提示语的大小-->
+        <attr name="tipsSize" format="dimension|reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MaxMinLayout">
+        <attr name="max_height" format="dimension|reference"/>
+        <attr name="min_Height" format="dimension|reference"/>
+
+    </declare-styleable>
+
+
 </resources>

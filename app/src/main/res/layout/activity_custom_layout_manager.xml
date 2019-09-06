@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/bnt_one"
+                android:text="更换数据"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/bnt_two"
+                android:text="更换adapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/bnt_three"
+                android:layout_width="wrap_content"
+                android:text="刷新数据"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/bnt_four"
+                android:layout_width="wrap_content"
+                android:text="添加数据"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/bnt_five"
+                android:layout_width="wrap_content"
+                android:text="删除数据"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>

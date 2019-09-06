@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.xiaozhanxiang.simplegridview.view.SlideBar
+        android:layout_gravity="right"
+        android:id="@+id/slide_bar"
+        app:slTextSize="11sp"
+        android:paddingRight="3dp"
+        android:paddingLeft="3dp"
+        app:slideBar_style="NONE"
+        app:slTextColor="#333"
+        app:chooseTextColor="#D38080"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+</LinearLayout>

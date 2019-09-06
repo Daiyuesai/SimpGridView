@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_one"
+        android:layout_width="wrap_content"
+        android:text="测试啊"
+        android:background="@color/colorPrimary"
+        android:padding="20dp"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/bnt_one"
+        android:layout_width="wrap_content"
+        android:text="我的啊"
+        android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="跳转测试"
+            android:id="@+id/bnt_two"
+            android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:id="@+id/iv_one"
+        android:scaleType="centerCrop"
+        android:layout_height="200dp" />
+
+</LinearLayout>

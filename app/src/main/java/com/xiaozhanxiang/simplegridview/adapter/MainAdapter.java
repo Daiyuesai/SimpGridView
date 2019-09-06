@@ -6,10 +6,21 @@ import android.preference.PreferenceActivity;
 import android.view.View;
 
 import com.xiaozhanxiang.simplegridview.R;
+import com.xiaozhanxiang.simplegridview.ui.AudioActivity;
+import com.xiaozhanxiang.simplegridview.ui.AutoCompleteTextViewActivity;
+import com.xiaozhanxiang.simplegridview.ui.CoordinatorLayoutActivity;
+import com.xiaozhanxiang.simplegridview.ui.CustomLayoutManagerActivity;
 import com.xiaozhanxiang.simplegridview.ui.DragDropRecyclerViewActivity;
 import com.xiaozhanxiang.simplegridview.ui.FlowLayoutViewActivity;
+import com.xiaozhanxiang.simplegridview.ui.ForegroundServiceActivity;
 import com.xiaozhanxiang.simplegridview.ui.JINActivity;
+import com.xiaozhanxiang.simplegridview.ui.LayoutManagerActivity;
+import com.xiaozhanxiang.simplegridview.ui.MaxMinLayoutActivity;
 import com.xiaozhanxiang.simplegridview.ui.RecyclerVeiwActivtiy;
+import com.xiaozhanxiang.simplegridview.ui.RemoteProcessActivity;
+import com.xiaozhanxiang.simplegridview.ui.SlideBarActivity;
+import com.xiaozhanxiang.simplegridview.ui.TestActivity;
+import com.xiaozhanxiang.simplegridview.ui.TransitionActivity;
 import com.xiaozhanxiang.simplegridview.ui.ViodeTestActivity;
 import com.xiaozhanxiang.simplegridview.view.InAdapter;
 import com.xiaozhanxiang.simplegridview.view.InViewHodler;
@@ -40,6 +51,26 @@ public class MainAdapter extends InAdapter<String> {
                     JINActivity.getInstance(mContext);
                 }else if (hodler.getPosition() == 4){
                     ViodeTestActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 5){
+                    AudioActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 6) {
+                    TestActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 7){
+                    AutoCompleteTextViewActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 8) {
+                    RemoteProcessActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 9) {
+                    SlideBarActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 10) {
+                    TransitionActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 11) {
+                    MaxMinLayoutActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 12){
+                    LayoutManagerActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 13){
+                    CoordinatorLayoutActivity.getInstance(mContext);
+                }else if (hodler.getPosition() == 14) {
+                    ForegroundServiceActivity.getInstance(mContext);
                 }
             }
         });

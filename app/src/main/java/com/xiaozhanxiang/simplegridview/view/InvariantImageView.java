@@ -3,8 +3,10 @@ package com.xiaozhanxiang.simplegridview.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.xiaozhanxiang.simplegridview.R;
 import com.xiaozhanxiang.simplegridview.utils.ReflexUtils;
@@ -70,7 +72,7 @@ public class InvariantImageView extends AppCompatImageView {
         int expecWidth;  // 预期的图片宽度
         if (limitMode == LIMIT_MODE_WIDTH) { //以宽作为标准
             if (widthMode == MeasureSpec.EXACTLY) {
-                expecWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
+                expecWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();  //不要考虑padding
                 float scale = expecWidth*1f/measuredWidth;
                 expectHeigth = (int) (measuredHeight * scale);
             }else {

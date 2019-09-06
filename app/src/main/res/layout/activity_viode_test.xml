@@ -18,4 +18,13 @@
         android:text="选择文件"
         android:id="@+id/tv_select_file"
         android:layout_height="@dimen/dp_40" />
+
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 </LinearLayout>

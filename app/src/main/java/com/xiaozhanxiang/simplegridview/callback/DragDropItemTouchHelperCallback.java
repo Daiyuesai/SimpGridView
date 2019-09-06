@@ -42,20 +42,20 @@ public class DragDropItemTouchHelperCallback extends ItemTouchHelper.Callback {
         int toPosition = target.getAdapterPosition();
 
         BaseQuickAdapter adapter = (BaseQuickAdapter) recyclerView.getAdapter();
-        List mDatas = adapter.getDatasSource();
-        if (toPosition == mDatas.size() - 1){
-            return true;
-        }
-        if (fromPosition < toPosition) {
-            for (int i = fromPosition; i < toPosition; i++) {
-                Collections.swap(mDatas, i, i + 1);
-            }
-        } else {
-            for (int i = fromPosition; i > toPosition; i--) {
-                Collections.swap(mDatas, i, i - 1);
-            }
-        }
-        adapter.notifyItemMoved(fromPosition, toPosition);
+//        List mDatas = adapter.getDatasSource();
+//        if (toPosition == mDatas.size() - 1){
+//            return true;
+//        }
+//        if (fromPosition < toPosition) {
+//            for (int i = fromPosition; i < toPosition; i++) {
+//                Collections.swap(mDatas, i, i + 1);
+//            }
+//        } else {
+//            for (int i = fromPosition; i > toPosition; i--) {
+//                Collections.swap(mDatas, i, i - 1);
+//            }
+//        }
+//        adapter.notifyItemMoved(fromPosition, toPosition);
         return true;
     }
 

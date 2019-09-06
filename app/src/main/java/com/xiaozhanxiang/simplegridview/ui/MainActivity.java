@@ -2,7 +2,7 @@ package com.xiaozhanxiang.simplegridview.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.helper.ItemTouchHelper;
+
 
 import com.xiaozhanxiang.simplegridview.R;
 import com.xiaozhanxiang.simplegridview.adapter.MainAdapter;
@@ -28,10 +28,20 @@ public class MainActivity extends AppCompatActivity {
         data.add("可拖拽recuclerView");
         data.add("jinActivity");
         data.add("ffmpeg测试");
+        data.add("音频练习");
+        data.add("测试界面");
+        data.add("AutoCompleteTextViewActivity");
+        data.add("RemoteProcessActivity");
+        data.add("SlideBarActivity");
+        data.add("TransitionActivity");
+        data.add("MaxMinLayoutActivity");
+        data.add("LayoutManagerActivity");
+        data.add("CoordinatorLayoutActivity");
+        data.add("ForegroundServiceActivity");
         for (int i = 0; i < 20; i++) {
             data.add("这是测试测试啊");
         }
-
+        
 
         adapter.addData(data);
     }

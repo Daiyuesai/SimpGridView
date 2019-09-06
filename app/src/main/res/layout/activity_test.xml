@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.xiaozhanxiang.simplegridview.view.MyProgressBar
+        android:layout_marginTop="@dimen/dp_40"
+        app:progress_drawable="@drawable/test"
+        android:progress="100"
+        app:progress_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:gravity="center"
+        android:text="测试"
+        android:textSize="14sp"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <com.xiaozhanxiang.simplegridview.view.LayoutTest
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:background="#B12525"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+
+        <TextView
+            android:background="#2E2222"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+
+
+    </com.xiaozhanxiang.simplegridview.view.LayoutTest>
+
+
+</LinearLayout>

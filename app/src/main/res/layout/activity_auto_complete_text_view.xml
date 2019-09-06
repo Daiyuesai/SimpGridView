@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:padding="20dp"
+        android:hint="这是测试"
+        android:id="@+id/et_auto_text"
+        android:completionThreshold="1"
+
+
+
+        android:dropDownWidth="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

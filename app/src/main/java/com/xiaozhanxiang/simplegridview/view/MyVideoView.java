@@ -49,7 +49,7 @@ public class MyVideoView extends SurfaceView {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                renderRe(path,getHolder().getSurface());
+                render(path,getHolder().getSurface());
             }
         }).start();
     }

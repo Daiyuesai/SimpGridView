@@ -2,6 +2,8 @@ package com.xiaozhanxiang.simplegridview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.TextureView;
@@ -18,7 +20,7 @@ import java.util.List;
  * date:2019/2/15
  * 自定义流式布局
  */
-public class FlowLayoutView extends ViewGroup {
+public class FlowLayoutView extends BaseListViewLayout {
     private int childDefultGravity = Gravity.TOP;
     private int layoutGravity ;
     private  List<View> lineView = new ArrayList<>(); //layout子view 时使用，每次布局一行
@@ -68,7 +70,7 @@ public class FlowLayoutView extends ViewGroup {
                     int chideMeasuredWidth = childView.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
                     int chideMeasuredHeight = childView.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin;
                     lineWidth = lineWidth + chideMeasuredWidth;
-                    if (lineWidth > maxWidthSize) {
+                    if (lineWidth > maxWidthSize) {  //超过这一行排下一行
                         isMultipleRow = true;
                         totalheight = totalheight + tempHeight;
                         lineWidth = getPaddingLeft() + getPaddingRight() + chideMeasuredWidth;
@@ -78,6 +80,10 @@ public class FlowLayoutView extends ViewGroup {
                     }
                 }
             }
+
+            totalheight = totalheight + tempHeight;
+
+
             if (isMultipleRow) {
                 setMeasuredDimension(maxWidthSize,resolveSize(totalheight,heightMeasureSpec));
             }else {
@@ -139,25 +145,27 @@ public class FlowLayoutView extends ViewGroup {
         for (View view : lineView) {
             LayoutParams params = (LayoutParams) view.getLayoutParams();
             int gravity = params.gravity == -1 ? childDefultGravity : params.gravity;
-            switch(gravity){
-                case Gravity.BOTTOM:
-                    view.layout(left + params.leftMargin,
-                            top + maxChildHeight - params.bottomMargin - view.getMeasuredHeight(),
-                            left + params.leftMargin + view.getMeasuredWidth(),
-                            top+ maxChildHeight - params.bottomMargin);
-                    break;
-                case Gravity.CENTER:
-                    view.layout(left + params.leftMargin ,
-                            top + maxChildHeight/2 - view.getMeasuredHeight()/2,
-                            left + params.leftMargin + view.getMeasuredWidth(),
-                            top + maxChildHeight/2 + view.getMeasuredHeight()/2);
-                    break;
-                default:
-                    view.layout(left + params.leftMargin,
-                            top + params.topMargin ,
-                            left + params.leftMargin + view.getMeasuredWidth(),
-                            top + params.topMargin + view.getMeasuredHeight());
-                    break;
+            if (view.getVisibility() == VISIBLE) { //考虑INVISIBLE 情况，只占位，不布局
+                switch(gravity){
+                    case Gravity.BOTTOM:
+                        view.layout(left + params.leftMargin,
+                                top + maxChildHeight - params.bottomMargin - view.getMeasuredHeight(),
+                                left + params.leftMargin + view.getMeasuredWidth(),
+                                top+ maxChildHeight - params.bottomMargin);
+                        break;
+                    case Gravity.CENTER:
+                        view.layout(left + params.leftMargin ,
+                                top + maxChildHeight/2 - view.getMeasuredHeight()/2,
+                                left + params.leftMargin + view.getMeasuredWidth(),
+                                top + maxChildHeight/2 + view.getMeasuredHeight()/2);
+                        break;
+                    default:
+                        view.layout(left + params.leftMargin,
+                                top + params.topMargin ,
+                                left + params.leftMargin + view.getMeasuredWidth(),
+                                top + params.topMargin + view.getMeasuredHeight());
+                        break;
+                }
             }
             left = left + params.leftMargin + params.rightMargin + view.getMeasuredWidth();
         }
@@ -213,8 +221,5 @@ public class FlowLayoutView extends ViewGroup {
         }
     }
 
-
-
-
-
+    
 }

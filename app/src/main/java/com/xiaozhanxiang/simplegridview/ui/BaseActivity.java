@@ -2,10 +2,13 @@ package com.xiaozhanxiang.simplegridview.ui;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.xiaozhanxiang.simplegridview.callback.PermissionResultListener;
 
@@ -22,6 +25,15 @@ public class BaseActivity extends AppCompatActivity {
 
     private Map<Integer, PermissionResultListener> mPermissionResultListener;
     private HashMap<String, Boolean> mPermission;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        }
+
+    }
 
     /**
      * 判断权限是否已同意

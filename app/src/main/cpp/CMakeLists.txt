@@ -51,6 +51,7 @@ add_library( # Sets the name of the library. 设置库名字
         CallTest.cpp
         testnative.c
         externtest.c
+        musicplay.cpp
         test.cpp
         native.c)
 #

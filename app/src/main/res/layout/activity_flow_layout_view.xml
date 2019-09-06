@@ -8,8 +8,7 @@
     tools:context=".ui.FlowLayoutViewActivity">
     <com.xiaozhanxiang.simplegridview.view.FlowLayoutView
         android:layout_width="wrap_content"
-        app:layoutGravity="center"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_margin="5dp"

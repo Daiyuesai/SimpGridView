@@ -189,7 +189,7 @@ public class SimpleGridView extends BaseListViewLayout {
 
     @Override
     protected LayoutParams generateLayoutParams(LayoutParams p) {
-        return super.generateLayoutParams(p);
+        return new MarginLayoutParams(p);
     }
 
     @Override

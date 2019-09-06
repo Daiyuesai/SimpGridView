@@ -2,11 +2,12 @@ package com.xiaozhanxiang.simplegridview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 
 import com.xiaozhanxiang.simplegridview.R;
 
@@ -16,8 +17,10 @@ import java.util.List;
 /**
  * author: dai
  * date:2019/2/27
+ * 防微信朋友圈图片显示排版  1张为包裹内容  4张排成两列 其它的情况排成3列
  */
 public class NineLayoutView extends ViewGroup implements InAdapter.OnDataChangeListener {
+    private static final String TAG = "NineLayoutView";
 
     private int mMiddleSpace;
     private int mChildWidth;
@@ -83,7 +86,7 @@ public class NineLayoutView extends ViewGroup implements InAdapter.OnDataChangeL
                 float scale = Math.min(maxWidth*1f/childMeasuredWidth,mSingleMaxSize*1f/childMeasuredHeight);
                 if (scale < 1f){
                     //小于1 需要缩放，重新测量子view 的宽高
-                    childView.measure(MeasureSpec.makeMeasureSpec((int) (childMeasuredWidth *scale),MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec((int) (heightMeasureSpec * scale),MeasureSpec.EXACTLY));
+                    childView.measure(MeasureSpec.makeMeasureSpec((int) (childMeasuredWidth *scale),MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec((int) (childMeasuredHeight * scale),MeasureSpec.EXACTLY));
                     childMeasuredWidth = childView.getMeasuredWidth();
                     childMeasuredHeight = childView.getMeasuredHeight();
                 }
@@ -278,6 +281,7 @@ public class NineLayoutView extends ViewGroup implements InAdapter.OnDataChangeL
             if (childAt != mViewHodlers.get(i).getContentView()) {
                 removeViewAt(i);
                 addView(mViewHodlers.get(i).getContentView(),i);
+                Log.e(TAG, "checkView: 真的又不相等的情况啊");
             }
         }
         if (childCount < mViewHodlers.size()) {
@@ -316,20 +320,24 @@ public class NineLayoutView extends ViewGroup implements InAdapter.OnDataChangeL
 
         @Override
         protected void convert(InViewHodler hodler, String bean) {
-            AppCompatImageView imageView = (AppCompatImageView) hodler.getContentView();
+            ImageView imageView = (ImageView) hodler.getContentView();
+//            if (getItemCount() == 1) {
+//                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//            }else {
+//                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            }
             displayIamge(imageView,bean,hodler.getPosition());
         }
 
         @Override
         protected View getView(ViewGroup viewGroup, int position) {
-            AppCompatImageView imageView = new AppCompatImageView(mContext);
+            ImageView imageView = new ImageView(mContext);
             imageView.setScaleType(getScaleType());
             //设置参数其实没有意义
 //            MarginLayoutParams params = new MarginLayoutParams(LayoutParams.WRAP_CONTENT, FlowLayoutView.LayoutParams.WRAP_CONTENT);
 //            imageView.setLayoutParams(params);
             return imageView;
         }
-
         /**
          * 再使用 Glide 加载图片的时，注意需要调用 dontTransform()方法，保证Glide不图原图做变换
          * 或者调用override 再在displayIamge中动态设置图片的ScaleType

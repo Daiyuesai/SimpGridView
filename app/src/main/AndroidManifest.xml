@@ -5,6 +5,16 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.JINActivity"></activity>
+        <activity android:name=".ui.JINActivity"/>
         <activity android:name=".ui.SnapHelperActivity" />
         <activity
             android:name=".ui.FlowLayoutViewActivity"
@@ -29,6 +39,25 @@
         <activity android:name=".ui.RecyclerVeiwActivtiy" />
         <activity android:name=".ui.DragDropRecyclerViewActivity" />
         <activity android:name=".ui.ViodeTestActivity"/>
+        <activity android:name=".ui.AudioActivity"/>
+        <activity android:name=".ui.TestActivity" />
+        <activity android:name=".ui.AutoCompleteTextViewActivity" />
+
+        <activity android:name=".ui.RemoteProcessActivity"
+            android:process=":remote"
+            />
+        <activity android:name=".ui.SlideBarActivity" />
+        <activity android:name=".ui.TransitionActivity" />
+        <activity android:name=".ui.ShareTransitionActivity" />
+        <activity android:name=".ui.MaxMinLayoutActivity" />
+        <activity android:name=".ui.CustomLayoutManagerActivity" />
+        <activity android:name=".ui.TestLayoutManagerActivity" />
+        <activity android:name=".ui.LayoutManagerActivity" />
+        <activity android:name=".ui.CoordinatorLayoutActivity" />
+        <activity android:name=".ui.ForegroundServiceActivity" />
+
+        <service android:name=".service.BookManagerService" />
+        <service android:name=".service.MediaPlayerService" />
     </application>
 
 </manifest>
